@@ -21,25 +21,32 @@ public class Appliance {
     private Long id;
 
     @NotNull
-    private String name;
+    @Column(name = "name_en")
+    private String nameEn;
 
-    @Enumerated(EnumType.STRING)
-    private Category category;
-
-    private String model;
+    @NotNull
+    @Column(name = "name_ua")
+    private String nameUa;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "manufacturer_id")
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "manufacturer_id", nullable = false)
     private Manufacturer manufacturer;
+
+    private String model;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "power_type")
     private PowerType powerType;
 
-    private String characteristic;
+    @Column(name = "description_en", columnDefinition = "TEXT")
+    private String descriptionEn;
 
-    @Column(length = 1000)
-    private String description;
+    @Column(name = "description_ua", columnDefinition = "TEXT")
+    private String descriptionUa;
 
     @Positive
     private Integer power;
@@ -47,4 +54,10 @@ public class Appliance {
     @NotNull
     @Positive
     private BigDecimal price;
+
+    private String imageUrl;
+
+    private Integer stockQuantity;
+
+    private boolean active = true;
 }

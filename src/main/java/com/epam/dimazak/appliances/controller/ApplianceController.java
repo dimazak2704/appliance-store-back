@@ -1,5 +1,44 @@
 package com.epam.dimazak.appliances.controller;
 
-public class ApplianceController {
-}
+import com.epam.dimazak.appliances.facade.ApplianceFacade;
+import com.epam.dimazak.appliances.model.dto.appliance.ApplianceDto;
+import com.epam.dimazak.appliances.model.dto.appliance.ApplianceFilterDto;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+@RestController
+@RequestMapping("/api/appliances")
+@RequiredArgsConstructor
+public class ApplianceController {
+
+    private final ApplianceFacade applianceFacade;
+
+    @GetMapping
+    public ResponseEntity<Page<ApplianceDto>> getAll(
+            @ModelAttribute ApplianceFilterDto filter,
+            @PageableDefault(size = 12, sort = "id", direction = Sort.Direction.DESC) Pageable pageable
+    ) {
+        return ResponseEntity.ok(applianceFacade.getAll(filter, pageable));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ApplianceDto> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(applianceFacade.getById(id));
+    }
+
+    @PostMapping("/{id}/image")
+    public ResponseEntity<ApplianceDto> uploadImage(
+            @PathVariable Long id,
+            @RequestParam("file") MultipartFile file
+    ) {
+        return ResponseEntity.ok(applianceFacade.uploadImage(id, file));
+    }
+}

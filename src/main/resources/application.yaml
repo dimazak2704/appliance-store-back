@@ -41,6 +41,7 @@ spring:
         - classpath:manufacturer.sql
         - classpath:client.sql
         - classpath:employee.sql
+        - classpath:category.sql
         - classpath:appliance.sql
 
 application:
@@ -50,3 +51,5 @@ application:
       expiration: 86400000
     google:
       client-id: ${GOOGLE_CLIENT_ID}
+  file:
+    upload-dir: uploads
