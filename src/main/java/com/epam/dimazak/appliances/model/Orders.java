@@ -1,16 +1,18 @@
 package com.epam.dimazak.appliances.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "orders")
 public class Orders {
@@ -24,12 +26,28 @@ public class Orders {
     private Employee employee;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id")
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private Set<OrderRow> orderRowSet = new HashSet<>();
 
-    private Boolean approved;
+    private Boolean approved = false;
+
+    @Column(nullable = false)
+    private String deliveryAddress;
+
+    @Column(nullable = false)
+    private String contactPhone;
+
+    private BigDecimal totalAmount;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    public void addRow(OrderRow row) {
+        orderRowSet.add(row);
+        row.setOrders(this);
+    }
 }

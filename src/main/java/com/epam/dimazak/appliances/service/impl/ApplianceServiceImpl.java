@@ -73,6 +73,10 @@ public class ApplianceServiceImpl implements ApplianceService {
                 .categoryNameUa(appliance.getCategory().getNameUa())
                 .manufacturerId(appliance.getManufacturer().getId())
                 .manufacturerName(appliance.getManufacturer().getName())
+                .createdAt(appliance.getCreatedAt())
+                .model(appliance.getModel())
+                .power(appliance.getPower())
+                .powerType(appliance.getPowerType() != null ? appliance.getPowerType().name() : null)
                 .build();
     }
 }

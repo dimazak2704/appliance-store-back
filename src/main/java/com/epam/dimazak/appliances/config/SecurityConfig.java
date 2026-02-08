@@ -38,6 +38,8 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/images/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/appliances/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/dictionaries/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/appliances/**").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
                         .anyRequest().authenticated()
                 )

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -25,10 +26,16 @@ public class ApplianceDto {
     private boolean active;
     private Integer stockQuantity;
 
+    private LocalDateTime createdAt;
+
     private String categoryNameEn;
     private String categoryNameUa;
     private Long categoryId;
 
     private String manufacturerName;
     private Long manufacturerId;
+
+    private String model;
+    private Integer power;
+    private String powerType;
 }

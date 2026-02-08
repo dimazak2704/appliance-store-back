@@ -1,6 +1,7 @@
 package com.epam.dimazak.appliances.repository.specification;
 
 import com.epam.dimazak.appliances.model.Appliance;
+import com.epam.dimazak.appliances.model.PowerType; // Не забудь імпорт Enum
 import com.epam.dimazak.appliances.model.dto.appliance.ApplianceFilterDto;
 import org.springframework.data.jpa.domain.Specification;
 import jakarta.persistence.criteria.Predicate;
@@ -19,24 +20,43 @@ public class ApplianceSpecification {
             if (filter.getCategoryId() != null) {
                 predicates.add(criteriaBuilder.equal(root.get("category").get("id"), filter.getCategoryId()));
             }
-
-            if (filter.getManufacturerId() != null) {
-                predicates.add(criteriaBuilder.equal(root.get("manufacturer").get("id"), filter.getManufacturerId()));
+            if (filter.getManufacturerIds() != null && !filter.getManufacturerIds().isEmpty()) {
+                predicates.add(root.get("manufacturer").get("id").in(filter.getManufacturerIds()));
             }
-
             if (filter.getName() != null && !filter.getName().isEmpty()) {
                 String searchPattern = "%" + filter.getName().toLowerCase() + "%";
                 Predicate nameEnMatch = criteriaBuilder.like(criteriaBuilder.lower(root.get("nameEn")), searchPattern);
                 Predicate nameUaMatch = criteriaBuilder.like(criteriaBuilder.lower(root.get("nameUa")), searchPattern);
                 predicates.add(criteriaBuilder.or(nameEnMatch, nameUaMatch));
             }
-
             if (filter.getMinPrice() != null) {
                 predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("price"), filter.getMinPrice()));
             }
-
             if (filter.getMaxPrice() != null) {
                 predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("price"), filter.getMaxPrice()));
+            }
+
+            if (filter.getPowerTypes() != null && !filter.getPowerTypes().isEmpty()) {
+                List<PowerType> enumTypes = new ArrayList<>();
+
+                for (String typeStr : filter.getPowerTypes()) {
+                    try {
+                        enumTypes.add(PowerType.valueOf(typeStr));
+                    } catch (IllegalArgumentException e) {
+                    }
+                }
+
+                if (!enumTypes.isEmpty()) {
+                    predicates.add(root.get("powerType").in(enumTypes));
+                }
+            }
+
+            if (filter.getMinPower() != null) {
+                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("power"), filter.getMinPower()));
+            }
+
+            if (filter.getMaxPower() != null) {
+                predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("power"), filter.getMaxPower()));
             }
 
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));

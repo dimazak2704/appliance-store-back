@@ -24,7 +24,7 @@ public class ApplianceController {
     @GetMapping
     public ResponseEntity<Page<ApplianceDto>> getAll(
             @ModelAttribute ApplianceFilterDto filter,
-            @PageableDefault(size = 12, sort = "id", direction = Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(size = 8, sort = "id", direction = Sort.Direction.DESC) Pageable pageable
     ) {
         return ResponseEntity.ok(applianceFacade.getAll(filter, pageable));
     }
