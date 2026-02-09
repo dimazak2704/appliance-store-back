@@ -10,10 +10,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ApplianceRepository extends JpaRepository<Appliance, Long>, JpaSpecificationExecutor<Appliance> {
-
-    Page<Appliance> findAllByActiveTrue(Pageable pageable);
-
-    Page<Appliance> findAllByCategoryIdAndActiveTrue(Long categoryId, Pageable pageable);
-
-    Page<Appliance> findByNameEnContainingIgnoreCaseOrNameUaContainingIgnoreCase(String nameEn, String nameUa, Pageable pageable);
 }

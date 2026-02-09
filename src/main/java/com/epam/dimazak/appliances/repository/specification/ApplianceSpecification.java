@@ -1,7 +1,7 @@
 package com.epam.dimazak.appliances.repository.specification;
 
 import com.epam.dimazak.appliances.model.Appliance;
-import com.epam.dimazak.appliances.model.PowerType; // Не забудь імпорт Enum
+import com.epam.dimazak.appliances.model.PowerType;
 import com.epam.dimazak.appliances.model.dto.appliance.ApplianceFilterDto;
 import org.springframework.data.jpa.domain.Specification;
 import jakarta.persistence.criteria.Predicate;

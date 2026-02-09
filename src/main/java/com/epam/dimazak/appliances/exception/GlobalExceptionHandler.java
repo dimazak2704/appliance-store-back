@@ -18,6 +18,13 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+
+    @ExceptionHandler(CartEmptyException.class)
+    public ResponseEntity<Map<String, Object>> handleCartEmpty(CartEmptyException ex) {
+        log.warn("Cart empty error: {}", ex.getMessage());
+        return buildErrorResponse(HttpStatus.BAD_REQUEST, ex.getMessage(), null);
+    }
+
     @ExceptionHandler(FileStorageException.class)
     public ResponseEntity<Map<String, Object>> handleFileStorageException(FileStorageException ex) {
         log.error("File storage error: {}", ex.getMessage());
@@ -36,10 +43,10 @@ public class GlobalExceptionHandler {
         return buildErrorResponse(HttpStatus.BAD_REQUEST, ex.getMessage(), null);
     }
 
-    @ExceptionHandler(DisabledException.class)
-    public ResponseEntity<Map<String, Object>> handleDisabledUser(DisabledException ex) {
-        log.warn("Login attempt for disabled account: {}", ex.getMessage());
-        return buildErrorResponse(HttpStatus.FORBIDDEN, "Account is disabled. Please check your email.", null);
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<Map<String, Object>> handleUserExists(UserAlreadyExistsException ex) {
+        log.warn("Registration failed: {}", ex.getMessage());
+        return buildErrorResponse(HttpStatus.CONFLICT, ex.getMessage(), null);
     }
 
     @ExceptionHandler(EmailSendingException.class)
@@ -47,6 +54,17 @@ public class GlobalExceptionHandler {
         log.error("Email service error: {}", ex.getMessage());
         return buildErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to send email notification", null);
     }
+
+    @ExceptionHandler(DisabledException.class)
+    public ResponseEntity<Map<String, Object>> handleDisabledUser(DisabledException ex) {
+        return buildErrorResponse(HttpStatus.FORBIDDEN, "Account is disabled. Please check your email.", null);
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<Map<String, Object>> handleBadCredentials(BadCredentialsException ex) {
+        return buildErrorResponse(HttpStatus.UNAUTHORIZED, "Invalid email or password", null);
+    }
+
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> handleValidationExceptions(MethodArgumentNotValidException ex) {
@@ -59,18 +77,6 @@ public class GlobalExceptionHandler {
 
         log.warn("Validation failed: {}", errors);
         return buildErrorResponse(HttpStatus.BAD_REQUEST, "Validation Failed", errors);
-    }
-
-    @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<Map<String, Object>> handleBadCredentials(BadCredentialsException ex) {
-        log.warn("Authentication failed: {}", ex.getMessage());
-        return buildErrorResponse(HttpStatus.UNAUTHORIZED, "Invalid email or password", null);
-    }
-
-    @ExceptionHandler(UserAlreadyExistsException.class)
-    public ResponseEntity<Map<String, Object>> handleUserExists(UserAlreadyExistsException ex) {
-        log.warn("Registration failed: {}", ex.getMessage());
-        return buildErrorResponse(HttpStatus.CONFLICT, ex.getMessage(), null);
     }
 
     @ExceptionHandler(Exception.class)

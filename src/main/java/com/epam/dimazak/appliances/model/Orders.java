@@ -29,18 +29,27 @@ public class Orders {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private Set<OrderRow> orderRowSet = new HashSet<>();
 
-    private Boolean approved = false;
-
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    private OrderStatus status;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private DeliveryType deliveryType;
+
     private String deliveryAddress;
 
     @Column(nullable = false)
     private String contactPhone;
 
+    private BigDecimal goodsTotalAmount;
+    private BigDecimal deliveryCost;
     private BigDecimal totalAmount;
 
     @CreationTimestamp

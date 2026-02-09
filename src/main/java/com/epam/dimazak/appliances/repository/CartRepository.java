@@ -1,0 +1,13 @@
+package com.epam.dimazak.appliances.repository;
+
+import com.epam.dimazak.appliances.model.Cart;
+import com.epam.dimazak.appliances.model.Client;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface CartRepository extends JpaRepository<Cart,Long> {
+
+
+    Optional<Cart> findByClient(Client client);
+}
