@@ -20,4 +20,7 @@ public class OrderHistoryDto {
     private DeliveryType deliveryType;
     private String deliveryAddress;
     private List<OrderHistoryItemDto> items;
+    private String clientName;
+    private String clientEmail;
+    private String clientPhone;
 }

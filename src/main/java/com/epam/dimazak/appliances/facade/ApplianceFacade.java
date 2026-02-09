@@ -19,10 +19,6 @@ public class ApplianceFacade {
         return applianceService.getApplianceById(id);
     }
 
-    public ApplianceDto uploadImage(Long id, MultipartFile file) {
-        return applianceService.uploadImage(id, file);
-    }
-
     public Page<ApplianceDto> getAll(ApplianceFilterDto filter, Pageable pageable) {
         return applianceService.getAppliancesByFilter(filter, pageable);
     }

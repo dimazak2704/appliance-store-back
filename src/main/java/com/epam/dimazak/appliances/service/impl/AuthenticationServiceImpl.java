@@ -2,18 +2,18 @@ package com.epam.dimazak.appliances.service.impl;
 
 import com.epam.dimazak.appliances.aspect.Loggable;
 import com.epam.dimazak.appliances.config.security.GoogleTokenVerifier;
+import com.epam.dimazak.appliances.config.security.JWTUtil;
 import com.epam.dimazak.appliances.exception.InvalidTokenException;
-import com.epam.dimazak.appliances.model.VerificationToken;
-import com.epam.dimazak.appliances.model.dto.auth.*;
 import com.epam.dimazak.appliances.exception.UserAlreadyExistsException;
 import com.epam.dimazak.appliances.model.Client;
 import com.epam.dimazak.appliances.model.User;
+import com.epam.dimazak.appliances.model.VerificationToken;
+import com.epam.dimazak.appliances.model.dto.auth.*;
 import com.epam.dimazak.appliances.repository.ClientRepository;
 import com.epam.dimazak.appliances.repository.EmployeeRepository;
-import com.epam.dimazak.appliances.config.security.JWTUtil;
 import com.epam.dimazak.appliances.repository.VerificationTokenRepository;
 import com.epam.dimazak.appliances.service.AuthenticationService;
-import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -43,8 +43,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final GoogleTokenVerifier googleTokenVerifier;
     private final MessageSource messageSource;
 
-    private String getMsg(String key) {
-        return messageSource.getMessage(key, null, LocaleContextHolder.getLocale());
+    private String getMsg(String key, Object... args) {
+        return messageSource.getMessage(key, args, LocaleContextHolder.getLocale());
     }
 
     @Override
@@ -57,7 +57,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
 
         var client = new Client(
-                null, request.getName(), request.getEmail(),
+                null,
+                request.getName(),
+                request.getEmail(),
                 passwordEncoder.encode(request.getPassword()),
                 request.getCard(),
                 false
@@ -72,17 +74,18 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         tokenRepository.save(token);
 
         String link = "http://localhost:5173/confirm-email?token=" + token.getToken();
-        emailService.sendEmail(
-                client.getEmail(),
-                "Confirm your email",
-                "Click here to activate your account: " + link
-        );
+
+        String subject = getMsg("email.confirm.subject");
+        String body = getMsg("email.confirm.body", link);
+
+        emailService.sendSimpleMessage(client.getEmail(), subject, body);
 
         return AuthResponse.builder().token(null).role("GUEST").build();
     }
 
     @Loggable
     @Override
+    @Transactional
     public void confirmEmail(String token) {
         VerificationToken verificationToken = tokenRepository.findByToken(token)
                 .orElseThrow(() -> new InvalidTokenException(getMsg("error.token.invalid")));
@@ -93,19 +96,22 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         String email = verificationToken.getEmail();
 
-        clientRepository.findByEmail(email).ifPresent(client -> {
-            client.setEnabled(true);
-            clientRepository.save(client);
-        });
+        Client client = clientRepository.findByEmail(email)
+                .orElseThrow(() -> new InvalidTokenException(getMsg("error.user.not_found")));
+
+        client.setEnabled(true);
+        clientRepository.save(client);
 
         tokenRepository.delete(verificationToken);
     }
 
     @Loggable
     @Override
+    @Transactional
     public void forgotPassword(String email) {
         if (clientRepository.findByEmail(email).isEmpty() &&
                 employeeRepository.findByEmail(email).isEmpty()) {
+            log.warn("Forgot password request for non-existent email: {}", email);
             return;
         }
 
@@ -119,21 +125,22 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         tokenRepository.save(token);
 
         String link = "http://localhost:5173/reset-password?token=" + token.getToken();
-        emailService.sendEmail(
-                email,
-                "Reset Password",
-                "Click here to reset password: " + link
-        );
+
+        String subject = getMsg("email.reset.subject");
+        String body = getMsg("email.reset.body", link);
+
+        emailService.sendSimpleMessage(email, subject, body);
     }
 
     @Loggable
     @Override
+    @Transactional
     public void resetPassword(PasswordResetRequest request) {
         VerificationToken token = tokenRepository.findByToken(request.getToken())
                 .orElseThrow(() -> new InvalidTokenException(getMsg("error.token.invalid")));
 
         if (token.getType() != VerificationToken.TokenType.PASSWORD_RESET) {
-            throw new InvalidTokenException("Invalid token type");
+            throw new InvalidTokenException(getMsg("error.token.invalid_type"));
         }
 
         if (token.getExpiryDate().isBefore(LocalDateTime.now())) {
@@ -159,21 +166,26 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Loggable
     @Override
     public AuthResponse authenticate(AuthRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
-        );
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
+            );
+        } catch (BadCredentialsException e) {
+            // Локалізуємо стандартну помилку Spring Security
+            throw new BadCredentialsException(getMsg("error.credentials.invalid"));
+        }
 
         User user = clientRepository.findByEmail(request.getEmail())
                 .map(u -> (User) u)
                 .orElseGet(() -> employeeRepository.findByEmail(request.getEmail())
-                        .orElseThrow(() -> new BadCredentialsException("error.credentials.invalid")));
+                        .orElseThrow(() -> new BadCredentialsException(getMsg("error.credentials.invalid"))));
 
         String token = jwtUtil.generateToken(Map.of("role", user.getRole().name()), user);
 
         return AuthResponse.builder()
                 .token(token)
                 .role(user.getRole().name())
-                .name(user.getName()) 
+                .name(user.getName())
                 .build();
     }
 
@@ -181,14 +193,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Transactional
     @Loggable
     public AuthResponse registerWithGoogle(GoogleRegisterRequest request) {
-        var payload = googleTokenVerifier.verify(request.getToken());
+        GoogleIdToken.Payload payload = googleTokenVerifier.verify(request.getToken());
+        if (payload == null) {
+            throw new InvalidTokenException(getMsg("error.google.token.invalid"));
+        }
 
         String email = payload.getEmail();
         String name = (String) payload.get("name");
 
         if (clientRepository.findByEmail(email).isPresent() ||
                 employeeRepository.findByEmail(email).isPresent()) {
-            throw new UserAlreadyExistsException("error.user.exists");
+            throw new UserAlreadyExistsException(getMsg("error.user.exists"));
         }
 
         var client = new Client(
@@ -214,13 +229,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     @Loggable
     public AuthResponse loginWithGoogle(GoogleLoginRequest request) {
-        var payload = googleTokenVerifier.verify(request.getToken());
+        GoogleIdToken.Payload payload = googleTokenVerifier.verify(request.getToken());
+        if (payload == null) {
+            throw new InvalidTokenException(getMsg("error.google.token.invalid"));
+        }
+
         String email = payload.getEmail();
 
         User user = clientRepository.findByEmail(email)
                 .map(u -> (User) u)
                 .orElseGet(() -> employeeRepository.findByEmail(email)
-                        .orElseThrow(() -> new BadCredentialsException("error.credentials.userNotRegistered")));
+                        .orElseThrow(() -> new BadCredentialsException(getMsg("error.credentials.userNotRegistered"))));
 
         String jwtToken = jwtUtil.generateToken(Map.of("role", user.getRole().name()), user);
 

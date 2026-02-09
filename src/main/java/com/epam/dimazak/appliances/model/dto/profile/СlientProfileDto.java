@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class UserProfileDto {
+public class СlientProfileDto {
     private String name;
     private String email;
     private String card;

@@ -1,7 +1,9 @@
 package com.epam.dimazak.appliances.service.impl;
 
 import com.epam.dimazak.appliances.aspect.Loggable;
+import com.epam.dimazak.appliances.exception.BusinessRuleException;
 import com.epam.dimazak.appliances.exception.CartEmptyException;
+import com.epam.dimazak.appliances.exception.NotEnoughStockException;
 import com.epam.dimazak.appliances.exception.ResourceNotFoundException;
 import com.epam.dimazak.appliances.model.*;
 import com.epam.dimazak.appliances.model.dto.cart.CartDto;
@@ -58,9 +60,8 @@ public class CartServiceImpl implements CartService {
         if (appliance.getStockQuantity() < newQuantity) {
             String name = LocaleContextHolder.getLocale().getLanguage().equals("uk")
                     ? appliance.getNameUa() : appliance.getNameEn();
-            throw new RuntimeException(getMsg("error.stock.not_enough", name, appliance.getStockQuantity()));
+            throw new NotEnoughStockException(getMsg("error.stock.not_enough", name, appliance.getStockQuantity()));
         }
-
         if (existingItem.isPresent()) {
             CartItem item = existingItem.get();
             item.setQuantity(newQuantity);
@@ -106,9 +107,13 @@ public class CartServiceImpl implements CartService {
             throw new CartEmptyException(getMsg("error.cart.empty"));
         }
 
+        if (client.getCard() == null || client.getCard().trim().isEmpty()) {
+            throw new BusinessRuleException(getMsg("error.card.required"));
+        }
+
         boolean isDelivery = request.getDeliveryType() == DeliveryType.COURIER || request.getDeliveryType() == DeliveryType.POST;
         if (isDelivery && (request.getAddress() == null || request.getAddress().isBlank())) {
-            throw new RuntimeException(getMsg("validation.address.required"));
+            throw new BusinessRuleException(getMsg("validation.address.required"));
         }
 
         Orders order = Orders.builder()
@@ -128,7 +133,7 @@ public class CartServiceImpl implements CartService {
             if (appliance.getStockQuantity() < qty) {
                 String name = LocaleContextHolder.getLocale().getLanguage().equals("uk")
                         ? appliance.getNameUa() : appliance.getNameEn();
-                throw new RuntimeException(getMsg("error.stock.not_enough", name, appliance.getStockQuantity()));
+                throw new NotEnoughStockException(getMsg("error.stock.not_enough", name, appliance.getStockQuantity()));
             }
 
             appliance.setStockQuantity(appliance.getStockQuantity() - qty);
@@ -204,9 +209,8 @@ public class CartServiceImpl implements CartService {
         if (item.getAppliance().getStockQuantity() < quantity) {
             String name = LocaleContextHolder.getLocale().getLanguage().equals("uk")
                     ? item.getAppliance().getNameUa() : item.getAppliance().getNameEn();
-            throw new RuntimeException(getMsg("error.stock.not_enough", name, item.getAppliance().getStockQuantity()));
+            throw new NotEnoughStockException(getMsg("error.stock.not_enough", name, item.getAppliance().getStockQuantity()));
         }
-
         item.setQuantity(quantity);
         cartRepository.save(cart);
     }

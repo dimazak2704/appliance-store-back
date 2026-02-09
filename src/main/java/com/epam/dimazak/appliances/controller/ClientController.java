@@ -5,7 +5,7 @@ import com.epam.dimazak.appliances.model.OrderStatus;
 import com.epam.dimazak.appliances.model.dto.order.OrderHistoryDto;
 import com.epam.dimazak.appliances.model.dto.profile.ChangePasswordRequest;
 import com.epam.dimazak.appliances.model.dto.profile.UpdateProfileRequest;
-import com.epam.dimazak.appliances.model.dto.profile.UserProfileDto;
+import com.epam.dimazak.appliances.model.dto.profile.СlientProfileDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,19 +15,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/profile")
+@RequestMapping("/api/client")
 @RequiredArgsConstructor
 public class ClientController {
 
     private final ClientFacade userFacade;
 
     @GetMapping
-    public ResponseEntity<UserProfileDto> getProfile(Authentication auth) {
+    public ResponseEntity<СlientProfileDto> getProfile(Authentication auth) {
         return ResponseEntity.ok(userFacade.getProfile(auth));
     }
 
     @PutMapping
-    public ResponseEntity<UserProfileDto> updateProfile(
+    public ResponseEntity<СlientProfileDto> updateProfile(
             @RequestBody @Valid UpdateProfileRequest request,
             Authentication auth
     ) {
@@ -49,5 +49,14 @@ public class ClientController {
             Authentication auth
     ) {
         return ResponseEntity.ok(userFacade.getUserOrders(status, auth));
+    }
+
+    @PatchMapping("/orders/{id}/cancel")
+    public ResponseEntity<Void> cancelOrder(
+            @PathVariable Long id,
+            Authentication auth
+    ) {
+        userFacade.cancelOrder(id, auth);
+        return ResponseEntity.ok().build();
     }
 }

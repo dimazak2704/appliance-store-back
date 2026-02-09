@@ -37,10 +37,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/images/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/appliances/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/dictionaries/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/appliances/**").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
+
+                        .requestMatchers(HttpMethod.GET, "/api/appliances/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/manufacturers/**").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

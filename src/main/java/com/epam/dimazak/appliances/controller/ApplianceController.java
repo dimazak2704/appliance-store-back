@@ -33,12 +33,4 @@ public class ApplianceController {
     public ResponseEntity<ApplianceDto> getById(@PathVariable Long id) {
         return ResponseEntity.ok(applianceFacade.getById(id));
     }
-
-    @PostMapping("/{id}/image")
-    public ResponseEntity<ApplianceDto> uploadImage(
-            @PathVariable Long id,
-            @RequestParam("file") MultipartFile file
-    ) {
-        return ResponseEntity.ok(applianceFacade.uploadImage(id, file));
-    }
 }

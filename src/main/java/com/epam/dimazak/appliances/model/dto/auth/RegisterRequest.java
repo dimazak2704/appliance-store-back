@@ -26,5 +26,6 @@ public class RegisterRequest {
     @Size(min = 8, message = "{validation.password.min}")
     private String password;
 
+    @Size(min = 16, max = 16, message = "{validation.card.size}")
     private String card;
 }

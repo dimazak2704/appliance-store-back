@@ -11,7 +11,7 @@ public class CheckoutRequestDto {
     @NotBlank(message = "{validation.phone.required}")
     private String phone;
 
-    @NotNull(message = "Delivery type is required")
+    @NotNull(message = "{validation.delivery.required}")
     private DeliveryType deliveryType;
 
     private String address;

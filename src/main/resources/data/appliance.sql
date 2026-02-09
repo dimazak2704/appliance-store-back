@@ -202,5 +202,5 @@ VALUES (
            'Budget friendly IPS gaming monitor.',
            'Бюджетний ігровий IPS монітор.',
            'VG270', 6500.00, 40, 'AC220', 20, true,
-           '[https://content2.rozetka.com.ua/goods/images/big/312093208.jpg](https://content2.rozetka.com.ua/goods/images/big/312093208.jpg)', 6, 5, '2026-01-18 11:00:00'
+           '/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg', 6, 5, '2026-01-18 11:00:00'
        );
