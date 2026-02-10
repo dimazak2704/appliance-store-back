@@ -3337,3 +3337,355 @@ org.springframework.security.core.userdetails.UsernameNotFoundException: User no
 2026-02-10 02:03:01 INFO  o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-02-10 02:03:01 INFO  c.z.h.HikariDataSource [SpringApplicationShutdownHook] - HikariPool-1 - Shutdown initiated...
 2026-02-10 02:03:01 INFO  c.z.h.HikariDataSource [SpringApplicationShutdownHook] - HikariPool-1 - Shutdown completed.
+2026-02-10 02:05:02 INFO  o.s.b.StartupInfoLogger [main] - Starting ApplianceStoreApplication using Java 22.0.1 with PID 15068 (C:\Users\Dell\Desktop\study\epam\final-project\appliances\target\classes started by Dell in C:\Users\Dell\Desktop\study\epam\final-project\appliances)
+2026-02-10 02:05:02 INFO  o.s.b.SpringApplication [main] - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 02:05:03 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [main] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 02:05:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [main] - Finished Spring Data repository scanning in 100 ms. Found 8 JPA repository interfaces.
+2026-02-10 02:05:04 INFO  o.s.b.t.TomcatWebServer [main] - Tomcat initialized with port 8080 (http)
+2026-02-10 02:05:05 INFO  o.a.j.l.DirectJDKLog [main] - Starting service [Tomcat]
+2026-02-10 02:05:05 INFO  o.a.j.l.DirectJDKLog [main] - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-10 02:05:05 INFO  o.s.b.w.c.s.WebApplicationContextInitializer [main] - Root WebApplicationContext: initialization completed in 2045 ms
+2026-02-10 02:05:05 INFO  o.h.j.i.u.LogHelper [main] - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-10 02:05:05 INFO  o.h.Version [main] - HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-10 02:05:06 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [main] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 02:05:06 INFO  c.z.h.HikariDataSource [main] - HikariPool-1 - Starting...
+2026-02-10 02:05:08 INFO  c.z.h.p.HikariPool [main] - HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/appliances user=SA
+2026-02-10 02:05:08 INFO  c.z.h.HikariDataSource [main] - HikariPool-1 - Start completed.
+2026-02-10 02:05:08 WARN  o.h.e.j.d.i.DialectFactoryImpl [main] - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-10 02:05:08 INFO  o.h.e.j.e.i.JdbcEnvironmentInitiator [main] - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:./data/appliances]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: APPLIANCES/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 02:05:10 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [main] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 02:05:10 INFO  o.s.o.j.AbstractEntityManagerFactoryBean [main] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 02:05:11 INFO  o.s.d.j.r.q.QueryEnhancerFactories [main] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-10 02:05:11 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [main] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-10 02:05:11 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [main] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-10 02:05:12 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration [main] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-10 02:05:13 INFO  o.s.b.h.a.H2ConsoleAutoConfiguration$H2ConsoleLogger [main] - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/appliances'
+2026-02-10 02:05:13 INFO  o.s.b.t.TomcatWebServer [main] - Tomcat started on port 8080 (http) with context path '/'
+2026-02-10 02:05:13 INFO  o.s.b.StartupInfoLogger [main] - Started ApplianceStoreApplication in 11.748 seconds (process running for 12.84)
+2026-02-10 02:06:18 INFO  o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-10 02:06:18 INFO  o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] - Initializing Servlet 'dispatcherServlet'
+2026-02-10 02:06:18 INFO  o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] - Completed initialization in 2 ms
+2026-02-10 02:06:20 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - --> START method 'getUserOrders' with arguments: [admin@gmail.com, null]
+2026-02-10 02:06:20 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - <-- ERROR in method 'getUserOrders': Користувача не знайдено
+2026-02-10 02:06:20 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-3] - Not found: Користувача не знайдено
+2026-02-10 02:06:21 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - --> START method 'getUserOrders' with arguments: [admin@gmail.com, null]
+2026-02-10 02:06:21 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - <-- ERROR in method 'getUserOrders': Користувача не знайдено
+2026-02-10 02:06:21 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-4] - Not found: Користувача не знайдено
+2026-02-10 02:06:22 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - --> START method 'getUserOrders' with arguments: [admin@gmail.com, NEW]
+2026-02-10 02:06:22 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - <-- ERROR in method 'getUserOrders': Користувача не знайдено
+2026-02-10 02:06:22 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-6] - Not found: Користувача не знайдено
+2026-02-10 02:06:23 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-7] - --> START method 'getUserOrders' with arguments: [admin@gmail.com, NEW]
+2026-02-10 02:06:23 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-7] - <-- ERROR in method 'getUserOrders': Користувача не знайдено
+2026-02-10 02:06:23 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-7] - Not found: Користувача не знайдено
+2026-02-10 02:06:24 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-9] - --> START method 'getUserOrders' with arguments: [admin@gmail.com, CONFIRMED]
+2026-02-10 02:06:24 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-9] - <-- ERROR in method 'getUserOrders': Користувача не знайдено
+2026-02-10 02:06:24 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-9] - Not found: Користувача не знайдено
+2026-02-10 02:06:25 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - --> START method 'getUserOrders' with arguments: [admin@gmail.com, CONFIRMED]
+2026-02-10 02:06:25 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - <-- ERROR in method 'getUserOrders': Користувача не знайдено
+2026-02-10 02:06:25 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-10] - Not found: Користувача не знайдено
+2026-02-10 02:06:27 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - --> START method 'getProfile' with arguments: [admin@gmail.com]
+2026-02-10 02:06:27 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - <-- ERROR in method 'getProfile': Користувача не знайдено
+2026-02-10 02:06:27 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-2] - Not found: Користувача не знайдено
+2026-02-10 02:06:28 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - --> START method 'getProfile' with arguments: [admin@gmail.com]
+2026-02-10 02:06:28 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - <-- ERROR in method 'getProfile': Користувача не знайдено
+2026-02-10 02:06:28 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-3] - Not found: Користувача не знайдено
+2026-02-10 02:06:38 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - --> START method 'getProfile' with arguments: [admin@gmail.com]
+2026-02-10 02:06:38 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - <-- ERROR in method 'getProfile': Користувача не знайдено
+2026-02-10 02:06:38 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-5] - Not found: Користувача не знайдено
+2026-02-10 02:06:39 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - --> START method 'getProfile' with arguments: [admin@gmail.com]
+2026-02-10 02:06:39 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - <-- ERROR in method 'getProfile': Користувача не знайдено
+2026-02-10 02:06:39 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-6] - Not found: Користувача не знайдено
+2026-02-10 02:06:40 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-8] - --> START method 'getUserOrders' with arguments: [admin@gmail.com, null]
+2026-02-10 02:06:40 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-8] - <-- ERROR in method 'getUserOrders': Користувача не знайдено
+2026-02-10 02:06:40 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-8] - Not found: Користувача не знайдено
+2026-02-10 02:06:41 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-9] - --> START method 'getUserOrders' with arguments: [admin@gmail.com, null]
+2026-02-10 02:06:41 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-9] - <-- ERROR in method 'getUserOrders': Користувача не знайдено
+2026-02-10 02:06:41 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-9] - Not found: Користувача не знайдено
+2026-02-10 02:06:43 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - --> START method 'getUserOrders' with arguments: [admin@gmail.com, null]
+2026-02-10 02:06:43 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - <-- ERROR in method 'getUserOrders': Користувача не знайдено
+2026-02-10 02:06:43 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-10] - Not found: Користувача не знайдено
+2026-02-10 02:06:44 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getUserOrders' with arguments: [admin@gmail.com, null]
+2026-02-10 02:06:44 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- ERROR in method 'getUserOrders': Користувача не знайдено
+2026-02-10 02:06:44 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-1] - Not found: Користувача не знайдено
+2026-02-10 02:06:44 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - --> START method 'getProfile' with arguments: [admin@gmail.com]
+2026-02-10 02:06:44 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - <-- ERROR in method 'getProfile': Користувача не знайдено
+2026-02-10 02:06:44 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-3] - Not found: Користувача не знайдено
+2026-02-10 02:06:45 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - --> START method 'getProfile' with arguments: [admin@gmail.com]
+2026-02-10 02:06:45 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - <-- ERROR in method 'getProfile': Користувача не знайдено
+2026-02-10 02:06:45 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-4] - Not found: Користувача не знайдено
+2026-02-10 02:06:53 INFO  o.s.b.t.GracefulShutdown [SpringApplicationShutdownHook] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 02:06:53 INFO  o.s.b.t.GracefulShutdown [tomcat-shutdown] - Graceful shutdown complete
+2026-02-10 02:06:53 INFO  o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 02:06:53 INFO  c.z.h.HikariDataSource [SpringApplicationShutdownHook] - HikariPool-1 - Shutdown initiated...
+2026-02-10 02:06:53 INFO  c.z.h.HikariDataSource [SpringApplicationShutdownHook] - HikariPool-1 - Shutdown completed.
+2026-02-10 02:38:55 INFO  o.s.b.StartupInfoLogger [main] - Starting ApplianceStoreApplication using Java 22.0.1 with PID 15940 (C:\Users\Dell\Desktop\study\epam\final-project\appliances\target\classes started by Dell in C:\Users\Dell\Desktop\study\epam\final-project\appliances)
+2026-02-10 02:38:55 INFO  o.s.b.SpringApplication [main] - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 02:38:56 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [main] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 02:38:56 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [main] - Finished Spring Data repository scanning in 76 ms. Found 8 JPA repository interfaces.
+2026-02-10 02:38:57 INFO  o.s.b.t.TomcatWebServer [main] - Tomcat initialized with port 8080 (http)
+2026-02-10 02:38:57 INFO  o.a.j.l.DirectJDKLog [main] - Starting service [Tomcat]
+2026-02-10 02:38:57 INFO  o.a.j.l.DirectJDKLog [main] - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-10 02:38:57 INFO  o.s.b.w.c.s.WebApplicationContextInitializer [main] - Root WebApplicationContext: initialization completed in 2261 ms
+2026-02-10 02:38:57 INFO  o.h.j.i.u.LogHelper [main] - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-10 02:38:57 INFO  o.h.Version [main] - HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-10 02:38:58 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [main] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 02:38:58 INFO  c.z.h.HikariDataSource [main] - HikariPool-1 - Starting...
+2026-02-10 02:38:58 INFO  c.z.h.p.HikariPool [main] - HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/appliances user=SA
+2026-02-10 02:38:58 INFO  c.z.h.HikariDataSource [main] - HikariPool-1 - Start completed.
+2026-02-10 02:38:58 WARN  o.h.e.j.d.i.DialectFactoryImpl [main] - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-10 02:38:58 INFO  o.h.e.j.e.i.JdbcEnvironmentInitiator [main] - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:./data/appliances]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: APPLIANCES/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 02:39:00 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [main] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 02:39:00 INFO  o.s.o.j.AbstractEntityManagerFactoryBean [main] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 02:39:00 INFO  o.s.d.j.r.q.QueryEnhancerFactories [main] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-10 02:39:00 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [main] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-10 02:39:00 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [main] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-10 02:39:00 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration [main] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-10 02:39:01 INFO  o.s.b.h.a.H2ConsoleAutoConfiguration$H2ConsoleLogger [main] - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/appliances'
+2026-02-10 02:39:01 INFO  o.s.b.t.TomcatWebServer [main] - Tomcat started on port 8080 (http) with context path '/'
+2026-02-10 02:39:01 INFO  o.s.b.StartupInfoLogger [main] - Started ApplianceStoreApplication in 6.919 seconds (process running for 7.757)
+2026-02-10 02:40:03 INFO  o.s.b.t.GracefulShutdown [SpringApplicationShutdownHook] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 02:40:03 INFO  o.s.b.t.GracefulShutdown [tomcat-shutdown] - Graceful shutdown complete
+2026-02-10 02:40:03 INFO  o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 02:40:03 INFO  c.z.h.HikariDataSource [SpringApplicationShutdownHook] - HikariPool-1 - Shutdown initiated...
+2026-02-10 02:40:03 INFO  c.z.h.HikariDataSource [SpringApplicationShutdownHook] - HikariPool-1 - Shutdown completed.
+2026-02-10 18:24:04 INFO  o.s.b.StartupInfoLogger [main] - Starting ApplianceStoreApplication using Java 22.0.1 with PID 9372 (C:\Users\Dell\Desktop\study\epam\final-project\appliances\target\classes started by Dell in C:\Users\Dell\Desktop\study\epam\final-project\appliances)
+2026-02-10 18:24:04 INFO  o.s.b.SpringApplication [main] - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 18:24:05 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [main] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 18:24:05 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [main] - Finished Spring Data repository scanning in 156 ms. Found 8 JPA repository interfaces.
+2026-02-10 18:24:07 INFO  o.s.b.t.TomcatWebServer [main] - Tomcat initialized with port 8080 (http)
+2026-02-10 18:24:07 INFO  o.a.j.l.DirectJDKLog [main] - Starting service [Tomcat]
+2026-02-10 18:24:07 INFO  o.a.j.l.DirectJDKLog [main] - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-10 18:24:07 INFO  o.s.b.w.c.s.WebApplicationContextInitializer [main] - Root WebApplicationContext: initialization completed in 3300 ms
+2026-02-10 18:24:07 INFO  o.h.j.i.u.LogHelper [main] - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-10 18:24:07 INFO  o.h.Version [main] - HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-10 18:24:08 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [main] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 18:24:08 INFO  c.z.h.HikariDataSource [main] - HikariPool-1 - Starting...
+2026-02-10 18:24:09 INFO  c.z.h.p.HikariPool [main] - HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/appliances user=SA
+2026-02-10 18:24:09 INFO  c.z.h.HikariDataSource [main] - HikariPool-1 - Start completed.
+2026-02-10 18:24:09 WARN  o.h.e.j.d.i.DialectFactoryImpl [main] - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-10 18:24:09 INFO  o.h.e.j.e.i.JdbcEnvironmentInitiator [main] - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:./data/appliances]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: APPLIANCES/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 18:24:11 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [main] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 18:24:11 INFO  o.s.o.j.AbstractEntityManagerFactoryBean [main] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 18:24:11 INFO  o.s.d.j.r.q.QueryEnhancerFactories [main] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-10 18:24:13 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [main] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-10 18:24:13 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [main] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-10 18:24:13 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration [main] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-10 18:24:14 INFO  o.s.b.h.a.H2ConsoleAutoConfiguration$H2ConsoleLogger [main] - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/appliances'
+2026-02-10 18:24:15 INFO  o.s.b.t.TomcatWebServer [main] - Tomcat started on port 8080 (http) with context path '/'
+2026-02-10 18:24:15 INFO  o.s.b.StartupInfoLogger [main] - Started ApplianceStoreApplication in 12.346 seconds (process running for 13.844)
+2026-02-10 18:24:21 INFO  o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-10 18:24:21 INFO  o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] - Initializing Servlet 'dispatcherServlet'
+2026-02-10 18:24:21 INFO  o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] - Completed initialization in 4 ms
+2026-02-10 18:24:21 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - --> START method 'getAllManufacturers' with arguments: []
+2026-02-10 18:24:21 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - --> START method 'getAllCategories' with arguments: []
+2026-02-10 18:24:21 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getAppliancesByFilter' with arguments: [ApplianceFilterDto(categoryId=null, manufacturerIds=null, name=null, minPrice=null, maxPrice=null, powerTypes=null, minPower=null, maxPower=null), Page request [number: 0, size 8, sort: createdAt: DESC]]
+2026-02-10 18:24:21 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - <-- END method 'getAllManufacturers'. Return: [ManufacturerDto(id=1, name=Dell), ManufacturerDto(id=2, name=HP), ManufacturerDto(id=3, name=Apple), ManufacturerDto(id=4, name=Lenovo), ManufacturerDto(id=5, name=Acer), ManufacturerDto(id=6, name=AMD), ManufacturerDto(id=7, name=Samsung), ManufacturerDto(id=8, name=LG), ManufacturerDto(id=9, name=Bosch), ManufacturerDto(id=10, name=Dyson)]. Time taken: 395 ms
+2026-02-10 18:24:21 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - <-- END method 'getAllCategories'. Return: [CategoryDto(id=1, nameEn=Laptops, nameUa=Ноутбуки), CategoryDto(id=2, nameEn=Smartphones, nameUa=Смартфони), CategoryDto(id=3, nameEn=Refrigerators, nameUa=Холодильники), CategoryDto(id=4, nameEn=Washing Machines, nameUa=Пральні машини), CategoryDto(id=5, nameEn=Vacuums, nameUa=Пилососи), CategoryDto(id=6, nameEn=Monitors, nameUa=Монітори)]. Time taken: 395 ms
+2026-02-10 18:24:21 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- END method 'getAppliancesByFilter'. Return: Page 1 of 3 containing com.epam.dimazak.appliances.model.dto.appliance.ApplianceDto instances. Time taken: 404 ms
+2026-02-10 18:24:21 WARN  o.s.d.w.c.SpringDataJackson3Configuration$PageModule$WarningLoggingModifier [http-nio-8080-exec-1] - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-02-10 18:24:22 INFO  o.a.j.l.DirectJDKLog [http-nio-8080-exec-6] - A cookie header was received [g_state={"i_l":0,"i_ll":1770680756724,"i_e":{"enable_itp_optimization":0},"i_b":"q3UJnelzVEKRJixVzFm01HcCgwd4HfoMGqkEwaY/oag"}] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-02-10 18:24:22 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - --> START method 'getMyCart' with arguments: [admin@gmail.com]
+2026-02-10 18:24:22 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - <-- ERROR in method 'getMyCart': Користувача не знайдено
+2026-02-10 18:24:22 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-5] - Not found: Користувача не знайдено
+2026-02-10 18:24:23 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getMyCart' with arguments: [admin@gmail.com]
+2026-02-10 18:24:23 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- ERROR in method 'getMyCart': Користувача не знайдено
+2026-02-10 18:24:23 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-1] - Not found: Користувача не знайдено
+2026-02-10 18:24:25 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - --> START method 'getAllCategories' with arguments: []
+2026-02-10 18:24:25 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - --> START method 'getAllManufacturers' with arguments: []
+2026-02-10 18:24:25 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - --> START method 'getAppliancesByFilter' with arguments: [ApplianceFilterDto(categoryId=null, manufacturerIds=null, name=null, minPrice=null, maxPrice=null, powerTypes=null, minPower=null, maxPower=null), Page request [number: 0, size 8, sort: createdAt: DESC]]
+2026-02-10 18:24:25 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - <-- END method 'getAllCategories'. Return: [CategoryDto(id=1, nameEn=Laptops, nameUa=Ноутбуки), CategoryDto(id=2, nameEn=Smartphones, nameUa=Смартфони), CategoryDto(id=3, nameEn=Refrigerators, nameUa=Холодильники), CategoryDto(id=4, nameEn=Washing Machines, nameUa=Пральні машини), CategoryDto(id=5, nameEn=Vacuums, nameUa=Пилососи), CategoryDto(id=6, nameEn=Monitors, nameUa=Монітори)]. Time taken: 5 ms
+2026-02-10 18:24:25 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - <-- END method 'getAllManufacturers'. Return: [ManufacturerDto(id=1, name=Dell), ManufacturerDto(id=2, name=HP), ManufacturerDto(id=3, name=Apple), ManufacturerDto(id=4, name=Lenovo), ManufacturerDto(id=5, name=Acer), ManufacturerDto(id=6, name=AMD), ManufacturerDto(id=7, name=Samsung), ManufacturerDto(id=8, name=LG), ManufacturerDto(id=9, name=Bosch), ManufacturerDto(id=10, name=Dyson)]. Time taken: 5 ms
+2026-02-10 18:24:25 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - <-- END method 'getAppliancesByFilter'. Return: Page 1 of 3 containing com.epam.dimazak.appliances.model.dto.appliance.ApplianceDto instances. Time taken: 24 ms
+2026-02-10 18:24:39 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getApplianceById' with arguments: [17]
+2026-02-10 18:24:39 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- END method 'getApplianceById'. Return: ApplianceDto(id=17, nameEn=Dyson V15 Detect, nameUa=Dyson V15 Detect, descriptionEn=Most powerful, intelligent cordless vacuum. Laser reveals microscopic dust., descriptionUa=Найпотужніший, розумний бездротовий пилосос. Лазер показує мікроскопічний пил., price=34999.00, imageUrl=/images/73374541-5063-474e-ba5a-b0301c3a46cc.jpg, active=true, stockQuantity=20, createdAt=2026-02-08T20:00, categoryNameEn=Vacuums, categoryNameUa=Пилососи, categoryId=5, manufacturerName=Dyson, manufacturerId=10, model=Absolute, power=660, powerType=ACCUMULATOR). Time taken: 15 ms
+2026-02-10 18:25:00 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - --> START method 'registerWithGoogle' with arguments: [GoogleRegisterRequest(token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImM4MTZkMzM3YjgzNjVhMDZhODUxYWQ4MDAxNmMxNzEwOTk0OTI2MDkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5ODE2MTQ0MzE3MDAtaDBibXQxNWE5c3M3ZWgwZThwMGpna3ZvMTQ3aDQzYm0uYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5ODE2MTQ0MzE3MDAtaDBibXQxNWE5c3M3ZWgwZThwMGpna3ZvMTQ3aDQzYm0uYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTY4MTA0OTIwNzk5Njc3NDE2OTUiLCJlbWFpbCI6ImRpbWF6YWsyNzA0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYmYiOjE3NzA3NDAzOTUsIm5hbWUiOiLQlNC80LjRgtGA0L4g0JfQsNC60YPRiNC90Y_QuiIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NMRGVtR1RMLUVqWE1CblpjRFAwNk40VVlvWFdJdzlwSDlEOFYxMmdCSjNnd2dNUHk0amF3PXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6ItCU0LzQuNGC0YDQviIsImZhbWlseV9uYW1lIjoi0JfQsNC60YPRiNC90Y_QuiIsImlhdCI6MTc3MDc0MDY5NSwiZXhwIjoxNzcwNzQ0Mjk1LCJqdGkiOiJiYTllMTYzMTY1NTIzY2Y4NjkwZjU1YmZmODMzMDZjYTk1NjQzZmE3In0.D6ynbW9n6DGwNNffbUd8tWihy1vQCFhHmivAdD-i25KUKd00TOZpzcV8fR5gGGYqj0g-RAhsTBLqOWRm1Uy5NLqdKQ33ucbveVba7s4fCX0pkhD2iTYl4kwYhLg7b_qIcLc2-FP25mH0IdOnQh58OSyYGWafKb_sdhpDByVwYJnbbUnKcevDls7_MTYnz-PC1GituBWe8A6NzEVrsvRVTALI0tmXUMhtGftbFWXhD0iNnUtZ5hwrccP2eE4KVc4B29ASUvqw-HXeiKo5l4_eBkTJ77BhYYJsQKPUErrcjnSF5N2zgX84dcFaaO3XOgXXA-2ZG8gpsO0f827FDIq4kg, password=123123123, card=null)]
+2026-02-10 18:25:01 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - <-- END method 'registerWithGoogle'. Return: AuthResponse(token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ0xJRU5UIiwic3ViIjoiZGltYXphazI3MDRAZ21haWwuY29tIiwiaWF0IjoxNzcwNzQwNzAxLCJleHAiOjE3NzA4MjcxMDF9.Vay7aYgZVXDC1Rcc45M0M6ePu6o_ivqW5PtrutLNIjQ, role=CLIENT, name=Дмитро Закушняк). Time taken: 994 ms
+2026-02-10 18:25:01 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:25:01 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - <-- END method 'getMyCart'. Return: CartDto(items=[], totalPrice=0, totalQuantity=0, amountLeftForFreeShipping=30000, isFreeShipping=false). Time taken: 41 ms
+2026-02-10 18:25:01 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - --> START method 'getAllCategories' with arguments: []
+2026-02-10 18:25:01 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - --> START method 'getAllManufacturers' with arguments: []
+2026-02-10 18:25:01 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - <-- END method 'getAllCategories'. Return: [CategoryDto(id=1, nameEn=Laptops, nameUa=Ноутбуки), CategoryDto(id=2, nameEn=Smartphones, nameUa=Смартфони), CategoryDto(id=3, nameEn=Refrigerators, nameUa=Холодильники), CategoryDto(id=4, nameEn=Washing Machines, nameUa=Пральні машини), CategoryDto(id=5, nameEn=Vacuums, nameUa=Пилососи), CategoryDto(id=6, nameEn=Monitors, nameUa=Монітори)]. Time taken: 4 ms
+2026-02-10 18:25:01 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - --> START method 'getAppliancesByFilter' with arguments: [ApplianceFilterDto(categoryId=null, manufacturerIds=null, name=null, minPrice=null, maxPrice=null, powerTypes=null, minPower=null, maxPower=null), Page request [number: 0, size 8, sort: createdAt: DESC]]
+2026-02-10 18:25:01 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - <-- END method 'getAllManufacturers'. Return: [ManufacturerDto(id=1, name=Dell), ManufacturerDto(id=2, name=HP), ManufacturerDto(id=3, name=Apple), ManufacturerDto(id=4, name=Lenovo), ManufacturerDto(id=5, name=Acer), ManufacturerDto(id=6, name=AMD), ManufacturerDto(id=7, name=Samsung), ManufacturerDto(id=8, name=LG), ManufacturerDto(id=9, name=Bosch), ManufacturerDto(id=10, name=Dyson)]. Time taken: 5 ms
+2026-02-10 18:25:01 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - <-- END method 'getAppliancesByFilter'. Return: Page 1 of 3 containing com.epam.dimazak.appliances.model.dto.appliance.ApplianceDto instances. Time taken: 28 ms
+2026-02-10 18:25:03 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - --> START method 'getApplianceById' with arguments: [7]
+2026-02-10 18:25:03 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - <-- END method 'getApplianceById'. Return: ApplianceDto(id=7, nameEn=iPhone 15 Pro, nameUa=iPhone 15 Pro, descriptionEn=Titanium design, A17 Pro chip, USB-C., descriptionUa=Титановий корпус, чіп A17 Pro, роз'єм USB-C., price=55000.00, imageUrl=/images/a0158ca3-41b2-4961-b849-197ccd64ecc4.jpg, active=true, stockQuantity=30, createdAt=2026-02-08T18:00, categoryNameEn=Smartphones, categoryNameUa=Смартфони, categoryId=2, manufacturerName=Apple, manufacturerId=3, model=Pro 256GB, power=20, powerType=ACCUMULATOR). Time taken: 4 ms
+2026-02-10 18:25:09 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - --> START method 'getAppliancesByFilter' with arguments: [ApplianceFilterDto(categoryId=null, manufacturerIds=null, name=null, minPrice=null, maxPrice=null, powerTypes=null, minPower=null, maxPower=null), Page request [number: 0, size 8, sort: price: ASC]]
+2026-02-10 18:25:09 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - <-- END method 'getAppliancesByFilter'. Return: Page 1 of 3 containing com.epam.dimazak.appliances.model.dto.appliance.ApplianceDto instances. Time taken: 20 ms
+2026-02-10 18:25:09 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - --> START method 'addToCart' with arguments: [dimazak2704@gmail.com, 23]
+2026-02-10 18:25:09 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - <-- END method 'addToCart'. Return: null. Time taken: 18 ms
+2026-02-10 18:25:10 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:25:10 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- END method 'getMyCart'. Return: CartDto(items=[CartItemDto(id=23, nameEn=Acer Nitro Monitor, nameUa=Acer Nitro Monitor, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, price=6500.00, quantity=1, rowTotal=6500.00)], totalPrice=6500.00, totalQuantity=1, amountLeftForFreeShipping=23500.00, isFreeShipping=false). Time taken: 5 ms
+2026-02-10 18:25:12 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:25:12 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - <-- END method 'getMyCart'. Return: CartDto(items=[CartItemDto(id=23, nameEn=Acer Nitro Monitor, nameUa=Acer Nitro Monitor, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, price=6500.00, quantity=1, rowTotal=6500.00)], totalPrice=6500.00, totalQuantity=1, amountLeftForFreeShipping=23500.00, isFreeShipping=false). Time taken: 5 ms
+2026-02-10 18:25:12 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-9] - --> START method 'getProfile' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:25:12 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-9] - <-- END method 'getProfile'. Return: СlientProfileDto(name=Дмитро Закушняк, email=dimazak2704@gmail.com, card=null, role=CLIENT). Time taken: 2 ms
+2026-02-10 18:25:15 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:25:15 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - <-- END method 'getMyCart'. Return: CartDto(items=[CartItemDto(id=23, nameEn=Acer Nitro Monitor, nameUa=Acer Nitro Monitor, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, price=6500.00, quantity=1, rowTotal=6500.00)], totalPrice=6500.00, totalQuantity=1, amountLeftForFreeShipping=23500.00, isFreeShipping=false). Time taken: 5 ms
+2026-02-10 18:25:16 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - --> START method 'updateQuantity' with arguments: [dimazak2704@gmail.com, 23, 2]
+2026-02-10 18:25:16 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - <-- END method 'updateQuantity'. Return: null. Time taken: 7 ms
+2026-02-10 18:25:16 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:25:16 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- END method 'getMyCart'. Return: CartDto(items=[CartItemDto(id=23, nameEn=Acer Nitro Monitor, nameUa=Acer Nitro Monitor, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, price=6500.00, quantity=2, rowTotal=13000.00)], totalPrice=13000.00, totalQuantity=2, amountLeftForFreeShipping=17000.00, isFreeShipping=false). Time taken: 5 ms
+2026-02-10 18:25:16 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-8] - --> START method 'updateQuantity' with arguments: [dimazak2704@gmail.com, 23, 3]
+2026-02-10 18:25:16 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-8] - <-- END method 'updateQuantity'. Return: null. Time taken: 5 ms
+2026-02-10 18:25:16 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:25:16 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - <-- END method 'getMyCart'. Return: CartDto(items=[CartItemDto(id=23, nameEn=Acer Nitro Monitor, nameUa=Acer Nitro Monitor, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, price=6500.00, quantity=3, rowTotal=19500.00)], totalPrice=19500.00, totalQuantity=3, amountLeftForFreeShipping=10500.00, isFreeShipping=false). Time taken: 3 ms
+2026-02-10 18:25:17 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - --> START method 'updateQuantity' with arguments: [dimazak2704@gmail.com, 23, 4]
+2026-02-10 18:25:17 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - <-- END method 'updateQuantity'. Return: null. Time taken: 6 ms
+2026-02-10 18:25:17 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-7] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:25:17 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-7] - <-- END method 'getMyCart'. Return: CartDto(items=[CartItemDto(id=23, nameEn=Acer Nitro Monitor, nameUa=Acer Nitro Monitor, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, price=6500.00, quantity=4, rowTotal=26000.00)], totalPrice=26000.00, totalQuantity=4, amountLeftForFreeShipping=4000.00, isFreeShipping=false). Time taken: 4 ms
+2026-02-10 18:25:17 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - --> START method 'updateQuantity' with arguments: [dimazak2704@gmail.com, 23, 5]
+2026-02-10 18:25:17 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - <-- END method 'updateQuantity'. Return: null. Time taken: 6 ms
+2026-02-10 18:25:18 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:25:18 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - <-- END method 'getMyCart'. Return: CartDto(items=[CartItemDto(id=23, nameEn=Acer Nitro Monitor, nameUa=Acer Nitro Monitor, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, price=6500.00, quantity=5, rowTotal=32500.00)], totalPrice=32500.00, totalQuantity=5, amountLeftForFreeShipping=0, isFreeShipping=true). Time taken: 7 ms
+2026-02-10 18:25:29 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - --> START method 'getProfile' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:25:29 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - <-- END method 'getProfile'. Return: СlientProfileDto(name=Дмитро Закушняк, email=dimazak2704@gmail.com, card=null, role=CLIENT). Time taken: 2 ms
+2026-02-10 18:26:02 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - --> START method 'updateProfile' with arguments: [dimazak2704@gmail.com, UpdateProfileRequest(name=Дмитро Закушняк, card=1231231231231231)]
+2026-02-10 18:26:02 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - <-- END method 'updateProfile'. Return: СlientProfileDto(name=Дмитро Закушняк, email=dimazak2704@gmail.com, card=1231231231231231, role=CLIENT). Time taken: 2 ms
+2026-02-10 18:26:04 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - --> START method 'getProfile' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:26:04 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - <-- END method 'getProfile'. Return: СlientProfileDto(name=Дмитро Закушняк, email=dimazak2704@gmail.com, card=1231231231231231, role=CLIENT). Time taken: 2 ms
+2026-02-10 18:26:04 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:26:04 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - <-- END method 'getMyCart'. Return: CartDto(items=[CartItemDto(id=23, nameEn=Acer Nitro Monitor, nameUa=Acer Nitro Monitor, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, price=6500.00, quantity=5, rowTotal=32500.00)], totalPrice=32500.00, totalQuantity=5, amountLeftForFreeShipping=0, isFreeShipping=true). Time taken: 6 ms
+2026-02-10 18:26:10 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - --> START method 'checkout' with arguments: [dimazak2704@gmail.com, CheckoutRequestDto(phone=+380989360647, deliveryType=SELF_PICKUP, address=)]
+2026-02-10 18:26:10 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - <-- END method 'checkout'. Return: 11. Time taken: 9 ms
+2026-02-10 18:26:10 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:26:10 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - <-- END method 'getMyCart'. Return: CartDto(items=[], totalPrice=0, totalQuantity=0, amountLeftForFreeShipping=30000, isFreeShipping=false). Time taken: 5 ms
+2026-02-10 18:26:14 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - --> START method 'getAllCategories' with arguments: []
+2026-02-10 18:26:14 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getAllManufacturers' with arguments: []
+2026-02-10 18:26:14 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-8] - --> START method 'getAppliancesByFilter' with arguments: [ApplianceFilterDto(categoryId=null, manufacturerIds=null, name=null, minPrice=null, maxPrice=null, powerTypes=null, minPower=null, maxPower=null), Page request [number: 0, size 8, sort: createdAt: DESC]]
+2026-02-10 18:26:14 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - <-- END method 'getAllCategories'. Return: [CategoryDto(id=1, nameEn=Laptops, nameUa=Ноутбуки), CategoryDto(id=2, nameEn=Smartphones, nameUa=Смартфони), CategoryDto(id=3, nameEn=Refrigerators, nameUa=Холодильники), CategoryDto(id=4, nameEn=Washing Machines, nameUa=Пральні машини), CategoryDto(id=5, nameEn=Vacuums, nameUa=Пилососи), CategoryDto(id=6, nameEn=Monitors, nameUa=Монітори)]. Time taken: 4 ms
+2026-02-10 18:26:14 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- END method 'getAllManufacturers'. Return: [ManufacturerDto(id=1, name=Dell), ManufacturerDto(id=2, name=HP), ManufacturerDto(id=3, name=Apple), ManufacturerDto(id=4, name=Lenovo), ManufacturerDto(id=5, name=Acer), ManufacturerDto(id=6, name=AMD), ManufacturerDto(id=7, name=Samsung), ManufacturerDto(id=8, name=LG), ManufacturerDto(id=9, name=Bosch), ManufacturerDto(id=10, name=Dyson)]. Time taken: 4 ms
+2026-02-10 18:26:14 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-8] - <-- END method 'getAppliancesByFilter'. Return: Page 1 of 3 containing com.epam.dimazak.appliances.model.dto.appliance.ApplianceDto instances. Time taken: 23 ms
+2026-02-10 18:26:15 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - --> START method 'getMyCart' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:26:15 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-5] - <-- END method 'getMyCart'. Return: CartDto(items=[], totalPrice=0, totalQuantity=0, amountLeftForFreeShipping=30000, isFreeShipping=false). Time taken: 3 ms
+2026-02-10 18:26:16 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - --> START method 'getProfile' with arguments: [dimazak2704@gmail.com]
+2026-02-10 18:26:16 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-6] - <-- END method 'getProfile'. Return: СlientProfileDto(name=Дмитро Закушняк, email=dimazak2704@gmail.com, card=1231231231231231, role=CLIENT). Time taken: 2 ms
+2026-02-10 18:26:18 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - --> START method 'getUserOrders' with arguments: [dimazak2704@gmail.com, null]
+2026-02-10 18:26:18 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - <-- END method 'getUserOrders'. Return: [OrderHistoryDto(id=11, date=2026-02-10T18:26:10.655758, totalAmount=32500.00, deliveryCost=0.00, status=NEW, deliveryType=SELF_PICKUP, deliveryAddress=, items=[OrderHistoryItemDto(productId=23, productNameEn=Acer Nitro Monitor, productNameUa=Acer Nitro Monitor, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, quantity=5, priceAtPurchase=6500.00, rowTotal=32500.00)], clientName=Дмитро Закушняк, clientEmail=dimazak2704@gmail.com, clientPhone=+380989360647)]. Time taken: 29 ms
+2026-02-10 18:26:26 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getApplianceById' with arguments: [23]
+2026-02-10 18:26:26 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- END method 'getApplianceById'. Return: ApplianceDto(id=23, nameEn=Acer Nitro Monitor, nameUa=Acer Nitro Monitor, descriptionEn=Budget friendly IPS gaming monitor., descriptionUa=Бюджетний ігровий IPS монітор., price=6500.00, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, active=true, stockQuantity=15, createdAt=2026-01-18T11:00, categoryNameEn=Monitors, categoryNameUa=Монітори, categoryId=6, manufacturerName=Acer, manufacturerId=5, model=VG270, power=40, powerType=AC220). Time taken: 2 ms
+2026-02-10 18:26:33 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-8] - --> START method 'getUserOrders' with arguments: [dimazak2704@gmail.com, null]
+2026-02-10 18:26:33 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-8] - <-- END method 'getUserOrders'. Return: [OrderHistoryDto(id=11, date=2026-02-10T18:26:10.655758, totalAmount=32500.00, deliveryCost=0.00, status=NEW, deliveryType=SELF_PICKUP, deliveryAddress=, items=[OrderHistoryItemDto(productId=23, productNameEn=Acer Nitro Monitor, productNameUa=Acer Nitro Monitor, imageUrl=/images/014d1baa-9b58-4ce9-b274-ea4cac25ffd1.jpg, quantity=5, priceAtPurchase=6500.00, rowTotal=32500.00)], clientName=Дмитро Закушняк, clientEmail=dimazak2704@gmail.com, clientPhone=+380989360647)]. Time taken: 7 ms
+2026-02-10 18:26:42 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-7] - --> START method 'authenticate' with arguments: [AuthRequest(email=admin@gmail.com, password=1231223123)]
+2026-02-10 18:26:42 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-7] - <-- ERROR in method 'authenticate': Користувача не знайдено
+2026-02-10 18:26:52 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-9] - --> START method 'authenticate' with arguments: [AuthRequest(email=admin@gmail.com, password=123123123)]
+2026-02-10 18:26:52 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-9] - <-- END method 'authenticate'. Return: AuthResponse(token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NzA3NDA4MTIsImV4cCI6MTc3MDgyNzIxMn0.e2YRY_H3G2pPiEV4WFHb63dirzwbc5dhecgSnkPsN70, role=ADMIN, name=Admin). Time taken: 303 ms
+2026-02-10 18:26:52 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - --> START method 'getMyCart' with arguments: [admin@gmail.com]
+2026-02-10 18:26:52 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - <-- ERROR in method 'getMyCart': Користувача не знайдено
+2026-02-10 18:26:52 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-4] - Not found: Користувача не знайдено
+2026-02-10 18:26:52 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getAllCategories' with arguments: []
+2026-02-10 18:26:52 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - --> START method 'getAllManufacturers' with arguments: []
+2026-02-10 18:26:52 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - --> START method 'getAppliancesByFilter' with arguments: [ApplianceFilterDto(categoryId=null, manufacturerIds=null, name=null, minPrice=null, maxPrice=null, powerTypes=null, minPower=null, maxPower=null), Page request [number: 0, size 8, sort: createdAt: DESC]]
+2026-02-10 18:26:52 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - <-- END method 'getAllManufacturers'. Return: [ManufacturerDto(id=1, name=Dell), ManufacturerDto(id=2, name=HP), ManufacturerDto(id=3, name=Apple), ManufacturerDto(id=4, name=Lenovo), ManufacturerDto(id=5, name=Acer), ManufacturerDto(id=6, name=AMD), ManufacturerDto(id=7, name=Samsung), ManufacturerDto(id=8, name=LG), ManufacturerDto(id=9, name=Bosch), ManufacturerDto(id=10, name=Dyson)]. Time taken: 2 ms
+2026-02-10 18:26:52 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- END method 'getAllCategories'. Return: [CategoryDto(id=1, nameEn=Laptops, nameUa=Ноутбуки), CategoryDto(id=2, nameEn=Smartphones, nameUa=Смартфони), CategoryDto(id=3, nameEn=Refrigerators, nameUa=Холодильники), CategoryDto(id=4, nameEn=Washing Machines, nameUa=Пральні машини), CategoryDto(id=5, nameEn=Vacuums, nameUa=Пилососи), CategoryDto(id=6, nameEn=Monitors, nameUa=Монітори)]. Time taken: 3 ms
+2026-02-10 18:26:52 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - <-- END method 'getAppliancesByFilter'. Return: Page 1 of 3 containing com.epam.dimazak.appliances.model.dto.appliance.ApplianceDto instances. Time taken: 13 ms
+2026-02-10 18:26:53 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getMyCart' with arguments: [admin@gmail.com]
+2026-02-10 18:26:53 ERROR c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- ERROR in method 'getMyCart': Користувача не знайдено
+2026-02-10 18:26:53 WARN  c.e.d.a.e.GlobalExceptionHandler [http-nio-8080-exec-1] - Not found: Користувача не знайдено
+2026-02-10 18:27:12 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - --> START method 'updateOrderStatus' with arguments: [11, COMPLETED]
+2026-02-10 18:27:14 INFO  c.e.d.a.s.i.EmailService [http-nio-8080-exec-2] - Email sent to dimazak2704@gmail.com
+2026-02-10 18:27:14 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - <-- END method 'updateOrderStatus'. Return: null. Time taken: 1743 ms
+2026-02-10 18:27:27 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - --> START method 'getAllCategories' with arguments: []
+2026-02-10 18:27:27 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-4] - <-- END method 'getAllCategories'. Return: [CategoryDto(id=1, nameEn=Laptops, nameUa=Ноутбуки), CategoryDto(id=2, nameEn=Smartphones, nameUa=Смартфони), CategoryDto(id=3, nameEn=Refrigerators, nameUa=Холодильники), CategoryDto(id=4, nameEn=Washing Machines, nameUa=Пральні машини), CategoryDto(id=5, nameEn=Vacuums, nameUa=Пилососи), CategoryDto(id=6, nameEn=Monitors, nameUa=Монітори)]. Time taken: 4 ms
+2026-02-10 18:27:27 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - --> START method 'getAllManufacturers' with arguments: []
+2026-02-10 18:27:27 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-10] - <-- END method 'getAllManufacturers'. Return: [ManufacturerDto(id=1, name=Dell), ManufacturerDto(id=2, name=HP), ManufacturerDto(id=3, name=Apple), ManufacturerDto(id=4, name=Lenovo), ManufacturerDto(id=5, name=Acer), ManufacturerDto(id=6, name=AMD), ManufacturerDto(id=7, name=Samsung), ManufacturerDto(id=8, name=LG), ManufacturerDto(id=9, name=Bosch), ManufacturerDto(id=10, name=Dyson)]. Time taken: 2 ms
+2026-02-10 18:27:29 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - --> START method 'getAllUsers' with arguments: [UserFilterDto(search=null, role=null, isEnabled=null), Page request [number: 0, size 10, sort: id: ASC]]
+2026-02-10 18:27:29 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - <-- END method 'getAllUsers'. Return: Page 1 of 2 containing com.epam.dimazak.appliances.model.dto.admin.AdminUserDto instances. Time taken: 9 ms
+2026-02-10 19:43:36 INFO  o.s.b.t.GracefulShutdown [SpringApplicationShutdownHook] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 19:43:36 INFO  o.s.b.t.GracefulShutdown [tomcat-shutdown] - Graceful shutdown complete
+2026-02-10 19:43:36 INFO  o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 19:43:36 INFO  c.z.h.HikariDataSource [SpringApplicationShutdownHook] - HikariPool-1 - Shutdown initiated...
+2026-02-10 19:43:36 INFO  c.z.h.HikariDataSource [SpringApplicationShutdownHook] - HikariPool-1 - Shutdown completed.
+2026-02-10 20:44:38 INFO  o.s.b.StartupInfoLogger [main] - Starting ApplianceStoreApplication using Java 22.0.1 with PID 23288 (C:\Users\Dell\Desktop\study\epam\final-project\appliances\target\classes started by Dell in C:\Users\Dell\Desktop\study\epam\final-project\appliances)
+2026-02-10 20:44:39 INFO  o.s.b.SpringApplication [main] - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 20:44:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [main] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 20:44:40 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [main] - Finished Spring Data repository scanning in 248 ms. Found 8 JPA repository interfaces.
+2026-02-10 20:44:42 INFO  o.s.b.t.TomcatWebServer [main] - Tomcat initialized with port 8080 (http)
+2026-02-10 20:44:42 INFO  o.a.j.l.DirectJDKLog [main] - Starting service [Tomcat]
+2026-02-10 20:44:42 INFO  o.a.j.l.DirectJDKLog [main] - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-10 20:44:42 INFO  o.s.b.w.c.s.WebApplicationContextInitializer [main] - Root WebApplicationContext: initialization completed in 3506 ms
+2026-02-10 20:44:42 INFO  o.h.j.i.u.LogHelper [main] - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-10 20:44:42 INFO  o.h.Version [main] - HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-10 20:44:43 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [main] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 20:44:43 INFO  c.z.h.HikariDataSource [main] - HikariPool-1 - Starting...
+2026-02-10 20:44:44 INFO  c.z.h.p.HikariPool [main] - HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/appliances user=SA
+2026-02-10 20:44:44 INFO  c.z.h.HikariDataSource [main] - HikariPool-1 - Start completed.
+2026-02-10 20:44:44 WARN  o.h.e.j.d.i.DialectFactoryImpl [main] - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-10 20:44:44 INFO  o.h.e.j.e.i.JdbcEnvironmentInitiator [main] - HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:./data/appliances]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: APPLIANCES/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 20:44:46 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [main] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 20:44:46 INFO  o.s.o.j.AbstractEntityManagerFactoryBean [main] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 20:44:46 INFO  o.s.d.j.r.q.QueryEnhancerFactories [main] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-10 20:44:47 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer [main] - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-02-10 20:44:47 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer [main] - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-02-10 20:44:47 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration [main] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-10 20:44:48 INFO  o.s.b.h.a.H2ConsoleAutoConfiguration$H2ConsoleLogger [main] - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/appliances'
+2026-02-10 20:44:48 INFO  o.s.b.t.TomcatWebServer [main] - Tomcat started on port 8080 (http) with context path '/'
+2026-02-10 20:44:48 INFO  o.s.b.StartupInfoLogger [main] - Started ApplianceStoreApplication in 10.561 seconds (process running for 11.892)
+2026-02-10 20:44:53 INFO  o.a.j.l.DirectJDKLog [http-nio-8080-exec-3] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-10 20:44:53 INFO  o.s.w.s.FrameworkServlet [http-nio-8080-exec-3] - Initializing Servlet 'dispatcherServlet'
+2026-02-10 20:44:53 INFO  o.s.w.s.FrameworkServlet [http-nio-8080-exec-3] - Completed initialization in 1 ms
+2026-02-10 20:44:53 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - --> START method 'getAllManufacturers' with arguments: []
+2026-02-10 20:44:53 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - --> START method 'getAllCategories' with arguments: []
+2026-02-10 20:44:53 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - --> START method 'getAppliancesByFilter' with arguments: [ApplianceFilterDto(categoryId=null, manufacturerIds=null, name=null, minPrice=null, maxPrice=null, powerTypes=null, minPower=null, maxPower=null), Page request [number: 0, size 8, sort: createdAt: DESC]]
+2026-02-10 20:44:54 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-3] - <-- END method 'getAllManufacturers'. Return: [ManufacturerDto(id=1, name=Dell), ManufacturerDto(id=2, name=HP), ManufacturerDto(id=3, name=Apple), ManufacturerDto(id=4, name=Lenovo), ManufacturerDto(id=5, name=Acer), ManufacturerDto(id=6, name=AMD), ManufacturerDto(id=7, name=Samsung), ManufacturerDto(id=8, name=LG), ManufacturerDto(id=9, name=Bosch), ManufacturerDto(id=10, name=Dyson)]. Time taken: 298 ms
+2026-02-10 20:44:54 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-2] - <-- END method 'getAllCategories'. Return: [CategoryDto(id=1, nameEn=Laptops, nameUa=Ноутбуки), CategoryDto(id=2, nameEn=Smartphones, nameUa=Смартфони), CategoryDto(id=3, nameEn=Refrigerators, nameUa=Холодильники), CategoryDto(id=4, nameEn=Washing Machines, nameUa=Пральні машини), CategoryDto(id=5, nameEn=Vacuums, nameUa=Пилососи), CategoryDto(id=6, nameEn=Monitors, nameUa=Монітори)]. Time taken: 298 ms
+2026-02-10 20:44:54 INFO  c.e.d.a.a.LoggingServices [http-nio-8080-exec-1] - <-- END method 'getAppliancesByFilter'. Return: Page 1 of 3 containing com.epam.dimazak.appliances.model.dto.appliance.ApplianceDto instances. Time taken: 304 ms
+2026-02-10 20:44:54 WARN  o.s.d.w.c.SpringDataJackson3Configuration$PageModule$WarningLoggingModifier [http-nio-8080-exec-1] - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-02-10 20:44:54 INFO  o.a.j.l.DirectJDKLog [http-nio-8080-exec-4] - A cookie header was received [g_state={"i_l":0,"i_ll":1770740803121,"i_e":{"enable_itp_optimization":0},"i_b":"dGbGsJWtmOzGxvPs5Adgtr4M7fjQDzlj3ShLAHmZYcw"}] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-02-10 20:56:40 INFO  o.s.b.t.GracefulShutdown [SpringApplicationShutdownHook] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 20:56:40 INFO  o.s.b.t.GracefulShutdown [tomcat-shutdown] - Graceful shutdown complete
+2026-02-10 20:56:40 INFO  o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 20:56:40 INFO  c.z.h.HikariDataSource [SpringApplicationShutdownHook] - HikariPool-1 - Shutdown initiated...
+2026-02-10 20:56:40 INFO  c.z.h.HikariDataSource [SpringApplicationShutdownHook] - HikariPool-1 - Shutdown completed.
