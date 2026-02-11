@@ -65,4 +65,10 @@ public class AdminUserController {
         adminUserFacade.deleteUser(id);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping("/{id}/password-reset")
+    public ResponseEntity<Void> resetPassword(@PathVariable Long id, @RequestBody String newPassword) {
+        adminUserFacade.adminResetPassword(id, newPassword);
+        return ResponseEntity.ok().build();
+    }
 }

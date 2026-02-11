@@ -1,10 +1,10 @@
-INSERT INTO employee (name, email, password, department, role, is_enabled) VALUES
-                                                                               ('Phobos', 'phobos@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', 'sales', 'EMPLOYEE', true),
-                                                                               ('Moon', 'moon@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', 'sales', 'EMPLOYEE', true),
-                                                                               ('Deimos', 'deimos@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', 'security', 'EMPLOYEE', true),
-                                                                               ('Europa', 'europa@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', 'security', 'EMPLOYEE', true),
-                                                                               ('Io', 'io@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', 'warehouse', 'EMPLOYEE', true),
-                                                                               ('Ganymede', 'ganymede@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', 'warehouse', 'EMPLOYEE', true),
-                                                                               ('Titan', 'titan@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', 'logistics', 'EMPLOYEE', true),
-                                                                               ('Dima', 'employee@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', 'IT', 'EMPLOYEE', true),
-                                                                               ('Admin', 'admin@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', 'Management', 'ADMIN', true);
+INSERT INTO employee (id, department) VALUES
+                                          (13, 'sales'),
+                                          (14, 'sales'),
+                                          (15, 'security'),
+                                          (16, 'security'),
+                                          (17, 'warehouse'),
+                                          (18, 'warehouse'),
+                                          (19, 'logistics'),
+                                          (20, 'IT'),
+                                          (21, 'Management');

@@ -94,18 +94,11 @@ class JWTUtilTest {
 
     @Test
     void isTokenExpired_shouldReturnTrue_ForExpiredToken() throws InterruptedException {
-        // Create a token with very short expiration
         ReflectionTestUtils.setField(jwtUtil, "jwtExpiration", 1L); // 1ms
         UserDetails userDetails = new User("test@example.com", "password", Collections.emptyList());
         String token = jwtUtil.generateToken(userDetails);
 
-        Thread.sleep(10); // Wait for it to expire
-
-        // isTokenValid checks expiration internally
-        // Note: isTokenValid might throw ExpiredJwtException or return false depending
-        // on implementation
-        // The current implementation calls extractExpiration checking before(new
-        // Date()) but parser might throw exception first
+        Thread.sleep(10);
 
         try {
             jwtUtil.isTokenValid(token, userDetails);

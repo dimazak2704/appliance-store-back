@@ -1,13 +1,13 @@
-INSERT INTO client (name, email, password, card, role, is_enabled) VALUES
-                                                                       ('Mercury', 'mercury@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326111153261111', 'CLIENT', true),
-                                                                       ('Venus', 'venus@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326222253262222', 'CLIENT', true),
-                                                                       ('Earth', 'earth@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326333353263333', 'CLIENT', true),
-                                                                       ('Mars', 'mars@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326444453264444', 'CLIENT', true),
-                                                                       ('Jupiter', 'jupiter@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326555553265555', 'CLIENT', true),
-                                                                       ('Saturn', 'saturn@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326666653266666', 'CLIENT', true),
-                                                                       ('Uranus', 'uranus@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326777753267777', 'CLIENT', true),
-                                                                       ('Neptune', 'neptune@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326888853268888', 'CLIENT', true),
-                                                                       ('Pluto', 'pluto@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326999953269999', 'CLIENT', true),
-                                                                       ('Ceres', 'ceres@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326000053260000', 'CLIENT', true),
-                                                                       ('Sirius', 'sirius@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326121253261212', 'CLIENT', true),
-                                                                       ('Andromeda', 'andromeda@gmail.com', '$2a$12$cQH5rafWulAK/.R/eQp2Vei6ZBgdOL0jXaSdkT/R5wJo.CbqtXYne', '5326131353261313', 'CLIENT', true);
+INSERT INTO client (id, card) VALUES
+                                  (1, '5326111153261111'),
+                                  (2, '5326222253262222'),
+                                  (3, '5326333353263333'),
+                                  (4, '5326444453264444'),
+                                  (5, '5326555553265555'),
+                                  (6, '5326666653266666'),
+                                  (7, '5326777753267777'),
+                                  (8, '5326888853268888'),
+                                  (9, '5326999953269999'),
+                                  (10, '5326000053260000'),
+                                  (11, '5326121253261212'),
+                                  (12, '5326131353261313');

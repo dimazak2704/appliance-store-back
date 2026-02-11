@@ -2,6 +2,7 @@ package com.epam.dimazak.appliances.config.security;
 
 import com.epam.dimazak.appliances.repository.ClientRepository;
 import com.epam.dimazak.appliances.repository.EmployeeRepository;
+import com.epam.dimazak.appliances.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,21 +13,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final ClientRepository clientRepository;
-    private final EmployeeRepository employeeRepository;
+    private final UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        var client = clientRepository.findByEmail(email);
-        if (client.isPresent()) {
-            return client.get();
-        }
-
-        var employee = employeeRepository.findByEmail(email);
-        if (employee.isPresent()) {
-            return employee.get();
-        }
-
-        throw new UsernameNotFoundException("User not found with email: " + email);
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 }

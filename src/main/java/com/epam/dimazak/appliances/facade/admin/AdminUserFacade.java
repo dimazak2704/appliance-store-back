@@ -40,4 +40,8 @@ public class AdminUserFacade {
     public void deleteUser(Long id) {
         clientService.deleteUser(id);
     }
+
+    public void adminResetPassword(Long id, String newPassword) {
+        clientService.adminResetPassword(id, newPassword);
+    }
 }

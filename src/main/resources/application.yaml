@@ -38,6 +38,7 @@ spring:
       mode: always
       data-locations:
         - classpath:data/manufacturer.sql
+        - classpath:data/users.sql
         - classpath:data/client.sql
         - classpath:data/employee.sql
         - classpath:data/category.sql

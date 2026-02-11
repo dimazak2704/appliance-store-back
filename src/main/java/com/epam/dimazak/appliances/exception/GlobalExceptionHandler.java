@@ -1,6 +1,9 @@
 package com.epam.dimazak.appliances.exception;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -17,7 +20,14 @@ import java.util.Map;
 
 @Slf4j
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class GlobalExceptionHandler {
+
+    private final MessageSource messageSource;
+
+    private String getMsg(String key) {
+        return messageSource.getMessage(key, null, LocaleContextHolder.getLocale());
+    }
 
     @ExceptionHandler(NotEnoughStockException.class)
     public ResponseEntity<Object> handleNotEnoughStock(NotEnoughStockException ex) {
@@ -76,17 +86,17 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EmailSendingException.class)
     public ResponseEntity<Object> handleEmailError(EmailSendingException ex) {
         log.error("Email error: {}", ex.getMessage());
-        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to send email notification", null);
+        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, getMsg("error.email.sending"), null);
     }
 
     @ExceptionHandler(DisabledException.class)
     public ResponseEntity<Object> handleDisabledUser(DisabledException ex) {
-        return buildResponse(HttpStatus.FORBIDDEN, "Account is disabled. Please check your email.", null);
+        return buildResponse(HttpStatus.FORBIDDEN, getMsg("error.user.disabled"), null);
     }
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<Object> handleBadCredentials(BadCredentialsException ex) {
-        return buildResponse(HttpStatus.UNAUTHORIZED, "Invalid email or password", null);
+        return buildResponse(HttpStatus.UNAUTHORIZED, getMsg("error.auth.bad_credentials"), null);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -100,13 +110,13 @@ public class GlobalExceptionHandler {
         });
 
         log.warn("Validation failed: {}", errors);
-        return buildResponse(HttpStatus.BAD_REQUEST, "Validation Failed", errors);
+        return buildResponse(HttpStatus.BAD_REQUEST, getMsg("error.validation.failed"), errors);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGeneralException(Exception ex) {
         log.error("Unexpected error: ", ex);
-        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred", null);
+        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, getMsg("error.unexpected"), null);
     }
 
     private ResponseEntity<Object> buildResponse(HttpStatus status, String message, Object details) {

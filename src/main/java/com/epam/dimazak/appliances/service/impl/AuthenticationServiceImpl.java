@@ -171,7 +171,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                     new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
             );
         } catch (BadCredentialsException e) {
-            // Локалізуємо стандартну помилку Spring Security
             throw new BadCredentialsException(getMsg("error.credentials.invalid"));
         }
 

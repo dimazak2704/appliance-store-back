@@ -22,4 +22,5 @@ public interface ClientService {
     void updateUserRole(Long id, String roleName);
     void updateUserStatus(Long id, boolean isEnabled);
     void deleteUser(Long id);
+    void adminResetPassword(Long id, String newPassword);
 }
