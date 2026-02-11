@@ -1,7 +1,6 @@
 package com.epam.dimazak.appliances.service.impl;
 
 import com.epam.dimazak.appliances.exception.BusinessRuleException;
-import com.epam.dimazak.appliances.exception.ResourceNotFoundException;
 import com.epam.dimazak.appliances.exception.UserAlreadyExistsException;
 import com.epam.dimazak.appliances.model.Client;
 import com.epam.dimazak.appliances.model.Role;
@@ -11,6 +10,8 @@ import com.epam.dimazak.appliances.model.dto.profile.ChangePasswordRequest;
 import com.epam.dimazak.appliances.model.dto.profile.UpdateProfileRequest;
 import com.epam.dimazak.appliances.model.dto.profile.СlientProfileDto;
 import com.epam.dimazak.appliances.repository.ClientRepository;
+import com.epam.dimazak.appliances.repository.EmployeeRepository;
+import com.epam.dimazak.appliances.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -32,7 +33,11 @@ import static org.mockito.Mockito.*;
 class ClientServiceImplTest {
 
     @Mock
+    private UserRepository userRepository;
+    @Mock
     private ClientRepository clientRepository;
+    @Mock
+    private EmployeeRepository employeeRepository;
     @Mock
     private PasswordEncoder passwordEncoder;
     @Mock
@@ -50,7 +55,7 @@ class ClientServiceImplTest {
         client.setCard("1234567890123456");
         client.setRole(Role.CLIENT);
 
-        when(clientRepository.findByEmail(email)).thenReturn(Optional.of(client));
+        when(userRepository.findByEmail(email)).thenReturn(Optional.of(client));
 
         СlientProfileDto result = clientService.getProfile(email);
 
@@ -71,13 +76,14 @@ class ClientServiceImplTest {
         request.setName("New Name");
         request.setCard("1234567890123456");
 
-        when(clientRepository.findByEmail(email)).thenReturn(Optional.of(client));
+        when(userRepository.findByEmail(email)).thenReturn(Optional.of(client));
+        when(userRepository.save(client)).thenReturn(client);
 
         clientService.updateProfile(email, request);
 
         assertThat(client.getName()).isEqualTo("New Name");
         assertThat(client.getCard()).isEqualTo("1234567890123456");
-        verify(clientRepository).save(client);
+        verify(userRepository).save(client);
     }
 
     @Test
@@ -91,14 +97,14 @@ class ClientServiceImplTest {
         request.setCurrentPassword("oldPassword");
         request.setNewPassword("newPassword");
 
-        when(clientRepository.findByEmail(email)).thenReturn(Optional.of(client));
+        when(userRepository.findByEmail(email)).thenReturn(Optional.of(client));
         when(passwordEncoder.matches("oldPassword", "oldHashedPassword")).thenReturn(true);
         when(passwordEncoder.encode("newPassword")).thenReturn("newHashedPassword");
 
         clientService.changePassword(email, request);
 
         assertThat(client.getPassword()).isEqualTo("newHashedPassword");
-        verify(clientRepository).save(client);
+        verify(userRepository).save(client);
     }
 
     @Test
@@ -112,7 +118,7 @@ class ClientServiceImplTest {
         request.setCurrentPassword("wrongPassword");
         request.setNewPassword("newPassword");
 
-        when(clientRepository.findByEmail(email)).thenReturn(Optional.of(client));
+        when(userRepository.findByEmail(email)).thenReturn(Optional.of(client));
         when(passwordEncoder.matches("wrongPassword", "oldHashedPassword")).thenReturn(false);
         when(messageSource.getMessage(anyString(), any(), any())).thenReturn("Invalid password");
 
@@ -129,11 +135,12 @@ class ClientServiceImplTest {
         request.setCard("1234567890123456");
         request.setRole("CLIENT");
 
-        when(clientRepository.existsByEmail(request.getEmail())).thenReturn(false);
+        when(userRepository.findByEmail(request.getEmail())).thenReturn(Optional.empty());
         when(passwordEncoder.encode(anyString())).thenReturn("hashedPassword");
-        when(clientRepository.save(any(Client.class))).thenAnswer(invocation -> {
+        when(userRepository.save(any(Client.class))).thenAnswer(invocation -> {
             Client saved = invocation.getArgument(0);
             saved.setId(1L);
+            saved.setRole(Role.CLIENT);
             return saved;
         });
 
@@ -141,7 +148,7 @@ class ClientServiceImplTest {
 
         assertThat(result.getId()).isNotNull();
         assertThat(result.getEmail()).isEqualTo("john@example.com");
-        verify(clientRepository).save(any(Client.class));
+        verify(userRepository).save(any(Client.class));
     }
 
     @Test
@@ -149,7 +156,10 @@ class ClientServiceImplTest {
         UserCreateRequest request = new UserCreateRequest();
         request.setEmail("existing@example.com");
 
-        when(clientRepository.existsByEmail(request.getEmail())).thenReturn(true);
+        Client existing = new Client();
+        existing.setId(99L);
+
+        when(userRepository.findByEmail(request.getEmail())).thenReturn(Optional.of(existing));
         when(messageSource.getMessage(anyString(), any(), any())).thenReturn("User exists");
 
         assertThatThrownBy(() -> clientService.createUser(request))
@@ -164,11 +174,11 @@ class ClientServiceImplTest {
         client.setRole(Role.ADMIN);
         client.setEnabled(true);
 
-        when(clientRepository.findById(id)).thenReturn(Optional.of(client));
+        when(userRepository.findById(id)).thenReturn(Optional.of(client));
+        when(messageSource.getMessage(anyString(), any(), any())).thenReturn("Cannot ban an ADMIN");
 
         assertThatThrownBy(() -> clientService.updateUserStatus(id, false))
-                .isInstanceOf(BusinessRuleException.class)
-                .hasMessageContaining("Cannot ban an ADMIN");
+                .isInstanceOf(BusinessRuleException.class);
     }
 
     @Test
@@ -179,11 +189,11 @@ class ClientServiceImplTest {
         client.setRole(Role.CLIENT);
         client.setEnabled(true);
 
-        when(clientRepository.findById(id)).thenReturn(Optional.of(client));
+        when(userRepository.findById(id)).thenReturn(Optional.of(client));
 
         clientService.updateUserStatus(id, false);
 
         assertThat(client.isEnabled()).isFalse();
-        verify(clientRepository).save(client);
+        verify(userRepository).save(client);
     }
 }

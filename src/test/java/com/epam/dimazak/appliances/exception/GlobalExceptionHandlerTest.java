@@ -1,6 +1,7 @@
 package com.epam.dimazak.appliances.exception;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -14,12 +15,15 @@ import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class GlobalExceptionHandlerTest {
 
-    private final GlobalExceptionHandler globalExceptionHandler = new GlobalExceptionHandler();
+    private final MessageSource messageSource = mock(MessageSource.class);
+    private final GlobalExceptionHandler globalExceptionHandler = new GlobalExceptionHandler(messageSource);
 
     @Test
     void handleNotEnoughStock_shouldReturnConflict() {
@@ -123,6 +127,9 @@ class GlobalExceptionHandlerTest {
     @Test
     void handleEmailError_shouldReturnInternalServerError() {
         EmailSendingException ex = new EmailSendingException("Email error");
+        when(messageSource.getMessage(eq("error.email.sending"), any(), any()))
+                .thenReturn("Failed to send email notification");
+
         ResponseEntity<Object> response = globalExceptionHandler.handleEmailError(ex);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -134,6 +141,9 @@ class GlobalExceptionHandlerTest {
     @Test
     void handleDisabledUser_shouldReturnForbidden() {
         DisabledException ex = new DisabledException("Disabled");
+        when(messageSource.getMessage(eq("error.user.disabled"), any(), any()))
+                .thenReturn("Account is disabled. Please check your email.");
+
         ResponseEntity<Object> response = globalExceptionHandler.handleDisabledUser(ex);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
@@ -145,6 +155,9 @@ class GlobalExceptionHandlerTest {
     @Test
     void handleBadCredentials_shouldReturnUnauthorized() {
         BadCredentialsException ex = new BadCredentialsException("Bad credentials");
+        when(messageSource.getMessage(eq("error.auth.bad_credentials"), any(), any()))
+                .thenReturn("Invalid email or password");
+
         ResponseEntity<Object> response = globalExceptionHandler.handleBadCredentials(ex);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
@@ -156,6 +169,8 @@ class GlobalExceptionHandlerTest {
     @Test
     void handleGeneralException_shouldReturnInternalServerError() {
         Exception ex = new Exception("Unexpected error");
+        when(messageSource.getMessage(eq("error.unexpected"), any(), any())).thenReturn("An unexpected error occurred");
+
         ResponseEntity<Object> response = globalExceptionHandler.handleGeneralException(ex);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -172,6 +187,7 @@ class GlobalExceptionHandlerTest {
 
         when(ex.getBindingResult()).thenReturn(bindingResult);
         when(bindingResult.getAllErrors()).thenReturn(List.of(fieldError));
+        when(messageSource.getMessage(eq("error.validation.failed"), any(), any())).thenReturn("Validation Failed");
 
         ResponseEntity<Object> response = globalExceptionHandler.handleValidationExceptions(ex);
 
